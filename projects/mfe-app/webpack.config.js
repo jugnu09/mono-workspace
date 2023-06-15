@@ -11,7 +11,8 @@ sharedMappings.register(
 module.exports = {
   output: {
     uniqueName: "mfeApp",
-    publicPath: "auto"
+    publicPath: "auto",
+    scriptType: "text/javascript"
   },
   optimization: {
     runtimeChunk: false
@@ -26,14 +27,13 @@ module.exports = {
   },
   plugins: [
     new ModuleFederationPlugin({
-        library: { type: "module" },
 
         // For remotes (please adjust)
-        // name: "mfeApp",
-        // filename: "remoteEntry.js",
-        // exposes: {
-        //     './Component': './projects/mfe-app/src/app/app.component.ts',
-        // },        
+        name: "mfeApp",
+        filename: "remoteEntry.js",
+        exposes: {
+            './TodoModule': './projects/mfe-app/src/app/todo/todo.module.ts',
+        },        
         
         // For hosts (please adjust)
         // remotes: {
