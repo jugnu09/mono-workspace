@@ -1,0 +1,2 @@
+# mono-workspace
+angular-microfrontend
